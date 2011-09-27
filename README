@@ -1,1 +1,23 @@
-Python script that allows one to bypass authentication/payment of wifi hotspots by using someone else's MAC address
+ This code will allow one to bypass the required logins or payements in wifi hotspots provided that there are people around that are logged in/paying
+ It is by no means fool proof and your mileage may very
+ More of a proof of concept
+
+
+(try to manually disconnect and reconnect to network after every mac address change for best results)
+
+
+first thing is to find your ip domain. i.e. 192.168.1.* 
+
+
+once we have that we launch an nmap ping of every address withing that subdomain
+
+while the ping is running we listen into the arp table. The network should give us the mac address of the nearby computers, even if they never respond to our ping request.
+
+Arp table building takes a while (it took me 8 minutes at an undisclosed location)
+
+we bring the interface down, we change the mac address bring it up and verify 
+the adress has changed
+
+Then we hold on for a bit and ask the user if he is connected.
+
+
